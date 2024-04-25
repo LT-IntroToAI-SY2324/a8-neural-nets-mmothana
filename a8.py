@@ -1,21 +1,22 @@
-from neural import *
+from neural import NeuralNet
 
-# print("<<<<<<<<<<<<<< XOR >>>>>>>>>>>>>>\n")
+print("<<<<<<<<<<<<<< XOR >>>>>>>>>>>>>>\n")
 
-# xor_data = [
-#     ([0,0], [0]),
-#     ([1,0], [1]),
-#     ([0,1], [1]),
-#     ([1,1], [0])
-# ]
+xor_data = [
+    ([0, 0], [0]),
+    ([1, 0], [1]),
+    ([0, 1], [1]),
+    ([1, 1], [0])
+]
 
-# xor_nn = NeuralNet(2, 2, 1)
-# xor_nn.train(xor_data, iters=1000, print_interval=100)
+# print(xor_data)
+xor_nn = NeuralNet(2, 2, 1)
+xor_nn.train(xor_data, iters=10000, print_interval=1000)
 
-# print(xor_nn.test_with_expected(xor_data))
-# print(xor_nn.evualate([1,1]))
+print(xor_nn.test_with_expected(xor_data))
+print(xor_nn.evualate([1,1]))
 
-print("<<<<<<<<<<<<<<<<<< Voter Data >>>>>>>>>>>>>>>")
+print("<<<<<<<<<<<<<< Voter Data >>>>>>>>>>>>>>\n")
 
 voter_data = [
     ([.9, .6, .8, .3, .1], [1]),
@@ -27,6 +28,7 @@ voter_data = [
 ]
 
 voter_nn = NeuralNet(5, 6, 1)
+
 voter_nn.train(voter_data)
 
 print(voter_nn.test_with_expected(voter_data))
@@ -39,4 +41,4 @@ print(voter_nn.test([
     [.9, .8, .8, .3, .6]
 ]))
 
-ptiny(voter_nn.evaluate)
+print(voter_nn.evaluate([1, 1, 1, .1, .1]))
